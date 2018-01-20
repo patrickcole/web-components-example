@@ -1,16 +1,17 @@
 class HelloElement extends HTMLElement {
 	constructor() {
 		super();
-		var shadow = this.attachShadow({ mode: 'open' });
+		var shadow = this.attachShadow({ mode: 'closed' });
 		shadow.innerHTML += `
 		<style>
-			#tabs { background-color: red; }
-			span { color: purple; }
+			.hello-element {
+				font-family: 'Arial', sans-serif;
+				font-size: 32px;
+			}
 		</style>
-		<div id="tabs">
-			hello
+		<div class="hello-element">
+			Hello ${this.getAttribute('name')}
 		</div>
-		<span>there</span>
 		`;
 	}
 }
